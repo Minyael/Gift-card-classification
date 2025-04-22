@@ -8,7 +8,7 @@ import sys
 from src.webcam import webcam
 from src.training import transfer_classification
 from src.data_augmentation import data_augmentation
-from src.image_download import download
+from src.predict_image import predict_images
 
 def run(program_to_run):
     """
@@ -20,12 +20,12 @@ def run(program_to_run):
         transfer_classification()
     elif program_to_run == 'augmentation':
         data_augmentation()
-    elif program_to_run == 'download':
-        download()
+    elif program_to_run == 'test':
+        predict_images()
 
 if __name__=='__main__':
-    if len(sys.argv) > 1 and sys.argv[1] in ['webcam', 'train', 'augmentation', 'download']:
+    if len(sys.argv) > 1 and sys.argv[1] in ['webcam', 'train', 'augmentation', 'test']:
         run(sys.argv[1])
     else:
         print("Invalid command. Please use one of the following commands:")
-        print("webcam, train, augmentation, download")
+        print("webcam, train, augmentation, test")
