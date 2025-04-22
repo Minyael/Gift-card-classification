@@ -5,31 +5,27 @@
 
 """
 import sys
-from src.managing_images import managing_images
-from src.convolution_kernels import convolution_kernel, convolution_video
-from src.cifar_classification import cifar_classification
-from src.data_aumentation import data_augmentation
-
+from src.webcam import webcam
+from src.training import transfer_classification
+from src.data_augmentation import data_augmentation
+from src.image_download import download
 
 def run(program_to_run):
     """
         Run the project.
     """
-    if program_to_run == 'mng_imgs':
-        managing_images()
-    elif program_to_run == 'conv_ker':
-        convolution_kernel()
-    elif program_to_run == 'conv_video':
-        convolution_video()
-    elif program_to_run == 'cifar':
-        cifar_classification()
-    elif program_to_run == 'data_augmentation':
+    if program_to_run == 'webcam':
+        webcam()
+    elif program_to_run == 'train':
+        transfer_classification()
+    elif program_to_run == 'augmentation':
         data_augmentation()
-
+    elif program_to_run == 'download':
+        download()
 
 if __name__=='__main__':
-    if len(sys.argv) > 1 and sys.argv[1] in ['mng_imgs', 'conv_ker', 'conv_video', 'cifar', 'data_augmentation']:
+    if len(sys.argv) > 1 and sys.argv[1] in ['webcam', 'train', 'augmentation', 'download']:
         run(sys.argv[1])
     else:
         print("Invalid command. Please use one of the following commands:")
-        print("mng_imgs, conv_ker, conv_video", "cifar", "data_augmentation")
+        print("webcam, train, augmentation, download")
