@@ -1,4 +1,4 @@
-# README - Redes neuronales con numpy
+# Clasificación de tarjetas de regalo
 
 ---
 
